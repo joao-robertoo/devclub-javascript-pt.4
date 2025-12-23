@@ -24,7 +24,7 @@
     ]
 
     function search() {
-        for(let i = 0; i < contacts.length;  i++) {
+        for(const contact of contacts){  {
 
             if(input.value.toLowerCase() === contacts[i].name.toLowerCase()){
                 p.innerText = `Contato encontrado nome:${contacts[i].name}: Tel:${contacts[i].number}`
