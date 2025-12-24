@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-   <input placeholder="Digite o nome do contato">
-   <p></p>
-   <button onclick="search()">Procurar Contato</button>
+    <input placeholder="Digite o nome do contato">
+    <p></p>
+    <button onclick="search()">Procurar Contato</button>
 </body>
 <script>
 
@@ -16,28 +18,41 @@
     let input = document.querySelector("input")
 
     const contacts = [
-        {name: "Ana", number: "1234-5678"},
-        {name: "Bruno", number: "2345-6789"},
-        {name: "Carla", number: "3456-7890"},
-        {name: "Daniel", number: "4567-8901"},
-        {name: "Eva", number: "5678-9012"},
+        { name: "Ana", number: "1234-5678" },
+        { name: "Bruno", number: "2345-6789" },
+        { name: "Carla", number: "3456-7890" },
+        { name: "Daniel", number: "4567-8901" },
+        { name: "Eva", number: "5678-9012" },
     ]
     function search() {
-    let i = 0
-    let found = false
 
-    while (i < contacts.length) {
+        array.forEach(contact => {
+            if (input.value.toLowerCase() === contact.name.toLowerCase()) {
+                p.innerText = `Contato encontrado nome: ${contact.name} | Tel: ${contact.number}`
 
-        if (input.value.toLowerCase() === contacts[i].name.toLowerCase()) {
-            p.innerText = `Contato encontrado nome: ${contacts[i].name} | Tel: ${contacts[i].number}`
-            found = true
-            break
+                break
+                
+            } else {
+                p.innerText = "Contato não encontrado"
+            }
+        });
+
+        /* let i = 0
+        let found = false
+    
+        while (i < contacts.length) {
+    
+            if (input.value.toLowerCase() === contacts[i].name.toLowerCase()) {
+                p.innerText = `Contato encontrado nome: ${contacts[i].name} | Tel: ${contacts[i].number}`
+                found = true
+                break
+            }
+            i++
         }
-        i++
+        if (!found) {
+            p.innerText = "Contato não encontrado"
+        } */
     }
-    if (!found) {
-        p.innerText = "Contato não encontrado"
-    }
-}
 </script>
+
 </html>
