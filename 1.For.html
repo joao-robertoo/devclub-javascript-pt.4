@@ -22,18 +22,22 @@
         {name: "Daniel", number: "4567-8901"},
         {name: "Eva", number: "5678-9012"},
     ]
-
     function search() {
-        for(const contact of contacts){ 
+    let i = 0
+    let found = false
 
-            if(input.value.toLowerCase() === contacts[i].name.toLowerCase()){
-                p.innerText = `Contato encontrado nome:${contacts[i].name}: Tel:${contacts[i].number}`
+    while (i < contacts.length) {
 
-                break
-            } else {
-                p.innerText = "Contato não encontrado"
-            }
+        if (input.value.toLowerCase() === contacts[i].name.toLowerCase()) {
+            p.innerText = `Contato encontrado nome: ${contacts[i].name} | Tel: ${contacts[i].number}`
+            found = true
+            break
         }
+        i++
     }
+    if (!found) {
+        p.innerText = "Contato não encontrado"
+    }
+}
 </script>
 </html>
