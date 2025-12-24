@@ -7,21 +7,25 @@
 
 const cart = [10, 244, 99, 2, 20, 33, 250];
 
-function calculateDiscount(cart) {
-  const discountedCart = [];
+let finalValueWithDiscount = 0;
+let totalDiscount = 0;
 
-  for (let i = 0; i < cart.length; i++) {
-    let price = cart[i];
-
-    if (price > 30) {
-      price = price * 0.9; // aplica 10% de desconto
-    }
-
-    discountedCart.push(Number(price.toFixed(2)));
-  }
-
-  return discountedCart;
+function calculateDiscount(price, discount) {
+  return (price * discount) / 100;
 }
 
-const result = calculateDiscount(cart);
-console.log(result);
+cart.forEach(value => {
+  if (value > 30) {
+    const discount = calculateDiscount(value, 10);
+    finalValueWithDiscount += value - discount;
+    totalDiscount += discount;
+  } else {
+    finalValueWithDiscount += value;
+  }
+});
+
+console.log(`
+O valor final da compra foi de R$ ${finalValueWithDiscount.toFixed(2)},
+Porém você teve desconto, e irá pagar apenas R$ ${finalValueWithDiscount.toFixed(2)},
+Você economizou R$ ${totalDiscount.toFixed(2)}
+`);
