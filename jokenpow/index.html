@@ -1,25 +1,39 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>DevClub JokenPow</title>
 </head>
+
 <body>
     <div class="container">
         <h1>JokenPô</h1>
 
         <div class="buttons">
-            <button id="rock">&#x1F44A;</button>
-            <button id="paper">&#x1f590;</button>
-            <button id="scissors">&#x270c;</button>
+            <button id="rock" onclick="playHuman('rock')">&#x1F44A;</button>
+            <button id="paper" onclick="playHuman('paper')">&#x1f590;</button>
+            <button id="scissors" onclick="playHuman('scissors')">&#x270c;</button>
         </div>
 
         <p class="result"></p>
 
-        <p class="your-score">Sua Pontuação: <span>0</span></p>
-        <p class="machine-score">Pontuação do Alexa: <span>0</span></p>
+        <img id="result-image" src="" alt="Resultado do jogo" style="width: 120px; margin: 10px 0; display: none;">
+
+        <p class="your-score">Sua Pontuação: <span id="human-score">0</span></p>
+        <p class="machine-score">Pontuação do Alexa: <span id="machine-score">0</span></p>
+
+        <button class="reset-btn" onclick="resetGame()">
+            Resetar Jogo
+        </button>
     </div>
+
+    <div id="fireworks"></div>
+    <div id="sad-overlay"></div>
+
 </body>
+<script src="./scripts.js"></script>
+
 </html>

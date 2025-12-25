@@ -65,3 +65,134 @@ p {
 .machine-score span {
     color: #ea4335;
 }
+
+#result-image {
+    transition: transform 0.3s ease;
+}
+
+#result-image:hover {
+    transform: scale(1.1);
+}
+
+.reset-btn {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #1a73e8;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.reset-btn:hover {
+    opacity: 0.8;
+}
+
+#fireworks {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 10;
+}
+
+.firework {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: radial-gradient(circle, #fff, transparent);
+    border-radius: 50%;
+    animation: explode 1s ease-out forwards;
+}
+
+@keyframes explode {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(6);
+        opacity: 0;
+    }
+}
+
+#sad-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 9990;
+    transition: opacity 0.4s ease;
+}
+
+#sad-overlay.active {
+    opacity: 1;
+}
+
+
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 16px;
+    opacity: 0.9;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-20px) rotate(0deg);
+    }
+    100% {
+        transform: translateY(110vh) rotate(360deg);
+    }
+}
+
+.lightning-ray {
+    position: fixed;
+    top: -20%;
+    width: 6px;
+    height: 140%;
+    background: linear-gradient(
+        to bottom,
+        rgba(255,255,255,0),
+        rgba(180,220,255,0.9),
+        rgba(255,255,255,0)
+    );
+    opacity: 0;
+    animation: lightningFade 2.5s ease-in-out forwards;
+    z-index: 99999; /* 🔥 AGORA FICA NA FRENTE DE TUDO */
+    pointer-events: none;
+}
+
+@keyframes lightningFade {
+    0% {
+        opacity: 0;
+        transform: scaleY(0.9);
+    }
+    30% {
+        opacity: 1;
+    }
+    70% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: scaleY(1.05);
+    }
+}
+
+@keyframes shake {
+    0% { transform: translate(0); }
+    20% { transform: translate(-6px, 4px); }
+    40% { transform: translate(6px, -4px); }
+    60% { transform: translate(-4px, 3px); }
+    80% { transform: translate(4px, -3px); }
+    100% { transform: translate(0); }
+}
+
+.shake-screen {
+    animation: shake 0.4s ease;
+}
