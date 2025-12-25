@@ -10,6 +10,12 @@ let machineScoreNumber = 0
 let confettiInterval = null
 let lightningInterval = null
 
+const GAME_OPTIONS = {
+    ROCK: 'rock',
+    PAPER: 'paper',
+    SCISSORS: 'scissors'
+}
+
 const images = {
     win: "https://cdn-icons-png.flaticon.com/512/742/742751.png",
     lose: "https://cdn-icons-png.flaticon.com/512/742/742905.png",
@@ -21,7 +27,7 @@ const playHuman = (humanChoice) => {
 }
 
 const playMachine = () => {
-    const choices = ["rock", "paper", "scissors"]
+    const choices = [GAME_OPTIONS.ROCK, GAME_OPTIONS.PAPER, GAME_OPTIONS.SCISSORS]
     return choices[Math.floor(Math.random() * 3)]
 }
 
@@ -36,9 +42,9 @@ const playTheGame = (human, machine) => {
     }
 
     const humanWon =
-        (human === "paper" && machine === "rock") ||
-        (human === "rock" && machine === "scissors") ||
-        (human === "scissors" && machine === "paper")
+        (human === GAME_OPTIONS.PAPER && machine === GAME_OPTIONS.ROCK) ||
+        (human === GAME_OPTIONS.ROCK && machine === GAME_OPTIONS.SCISSORS) ||
+        (human === GAME_OPTIONS.SCISSORS && machine === GAME_OPTIONS.PAPER)
 
     if (humanWon) {
         humanScoreNumber++
